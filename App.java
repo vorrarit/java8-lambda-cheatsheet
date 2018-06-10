@@ -12,19 +12,19 @@ public class App {
 				 */
 				return str.toLowerCase(); 
 			}
-		}));
+		});
 
 		/* in java 8 lambda, we can do like this */
 		/* interface with single method is called functional interface in java8 */
 		/* and we can use lambda as replacement */
-		System.out.println(process("Hello World!", (String str) - {
+		System.out.println(process("Hello World!", (String str) -> {
 			return str.toLowerCase();
-		}))
+		}));
 
 		/* we can compress it into the following */
 		System.out.println(process("Hello World!", (str) -> {
 			return str.toLowerCase();
-		}))
+		}));
 
 		/* or even more compress like this */
 		System.out.println(process("Hello World!", str -> str.toLowerCase()));
@@ -32,7 +32,7 @@ public class App {
 	}
 
 	private static String process(String str, Processor processor) {
-		return processor.process(str)
+		return processor.process(str);
 	}
 }
 
@@ -47,6 +47,6 @@ public class App2 {
 	}
 
 	private static String process(String str, Function<String, String> processor) {
-		return processor.apply(str)
+		return processor.apply(str);
 	}
 }
